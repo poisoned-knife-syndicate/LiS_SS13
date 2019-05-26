@@ -59,11 +59,11 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_species(H ? H.get_species() : SPECIES_HUMAN)
 	set_branch(H ? (H.char_branch && H.char_branch.name) : "None")
 	set_rank(H ? (H.char_rank && H.char_rank.name) : "None")
-	set_public_record(H && H.public_record && !jobban_isbanned(H, "Records") ? html_decode(H.public_record) : "No record supplied")
+	set_public_record(H && H.public_record && !jobban_isbanned(H, "Records") ? rhtml_decode(H.public_record) : "No record supplied")
 
 	// Medical record
 	set_bloodtype(H ? H.b_type : "Unset")
-	set_medRecord((H && H.med_record && !jobban_isbanned(H, "Records") ? html_decode(H.med_record) : "No record supplied"))
+	set_medRecord((H && H.med_record && !jobban_isbanned(H, "Records") ? rhtml_decode(H.med_record) : "No record supplied"))
 
 	if(H)
 		if(H.isSynthetic())
@@ -84,13 +84,13 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_criminalStatus(GLOB.default_security_status)
 	set_dna(H ? H.dna.unique_enzymes : "")
 	set_fingerprint(H ? md5(H.dna.uni_identity) : "")
-	set_secRecord(H && H.sec_record && !jobban_isbanned(H, "Records") ? html_decode(H.sec_record) : "No record supplied")
+	set_secRecord(H && H.sec_record && !jobban_isbanned(H, "Records") ? rhtml_decode(H.sec_record) : "No record supplied")
 
 	// Employment record
 	var/employment_record = "No record supplied"
 	if(H)
 		if(H.gen_record && !jobban_isbanned(H, "Records"))
-			employment_record = html_decode(H.gen_record)
+			employment_record = rhtml_decode(H.gen_record)
 		if(H.client && H.client.prefs)
 			var/list/qualifications
 			for(var/culturetag in H.client.prefs.cultural_info)
@@ -103,9 +103,9 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 	set_emplRecord(employment_record)
 
 	// Misc cultural info.
-	set_homeSystem(H ? html_decode(H.get_cultural_value(TAG_HOMEWORLD)) : "Unset")
-	set_faction(H ? html_decode(H.get_cultural_value(TAG_FACTION)) : "Unset")
-	set_religion(H ? html_decode(H.get_cultural_value(TAG_RELIGION)) : "Unset")
+	set_homeSystem(H ? rhtml_decode(H.get_cultural_value(TAG_HOMEWORLD)) : "Unset")
+	set_faction(H ? rhtml_decode(H.get_cultural_value(TAG_FACTION)) : "Unset")
+	set_religion(H ? rhtml_decode(H.get_cultural_value(TAG_RELIGION)) : "Unset")
 
 	if(H)
 		var/skills = list()
@@ -117,7 +117,7 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 		set_skillset(jointext(skills,"\n"))
 
 	// Antag record
-	set_antagRecord(H && H.exploit_record && !jobban_isbanned(H, "Records") ? html_decode(H.exploit_record) : "")
+	set_antagRecord(H && H.exploit_record && !jobban_isbanned(H, "Records") ? rhtml_decode(H.exploit_record) : "")
 
 // Global methods
 // Used by character creation to create a record for new arrivals.

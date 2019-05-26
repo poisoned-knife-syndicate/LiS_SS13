@@ -71,7 +71,7 @@
 /obj/machinery/food_replicator/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	if(!speaking || speaking.machine_understands)
 		spawn(20)
-			var/true_text = lowertext(html_decode(text))
+			var/true_text = rlowertext(rhtml_decode(text))
 			for(var/menu_item in menu)
 				if(findtext(true_text, menu_item))
 					queue_dish(menu_item)

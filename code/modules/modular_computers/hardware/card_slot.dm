@@ -42,13 +42,13 @@
 						if(access_type == ACCESS_TYPE_NONE || access_type == ACCESS_TYPE_SYNDICATE || access_type == ACCESS_TYPE_CENTCOM) // Don't elaborate on these access types.
 							list_of_accesses += "UNKNOWN" // "UNKNOWN"
 						else
-							list_of_accesses += uppertext(access_information.desc)
+							list_of_accesses += ruppertext(access_information.desc)
 					else
 						list_of_accesses += "RD_ERR"
 				to_send += jointext(list_of_accesses, ", ") + "\n" // Should append a proper, comma separated list.
-	
+
 	to_chat(user, JOINTEXT(to_send))
-		
+
 
 /obj/item/weapon/computer_hardware/card_slot/broadcaster // read only
 	name = "RFID card broadcaster"

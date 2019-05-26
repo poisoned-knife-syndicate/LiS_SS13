@@ -8,7 +8,7 @@
 	if(!istype(reagent))
 		return
 
-	var/gas_id = lowertext(reagent.name)
+	var/gas_id = rlowertext(reagent.name)
 	if(gas_id in gas_data.gases)
 		return
 
@@ -131,7 +131,7 @@
 		var/datum/gas_mixture/produced = new
 		var/added_gas = FALSE
 		for(var/datum/reagent/R in container.reagents.reagent_list)
-			var/gas_id = lowertext(R.name)
+			var/gas_id = rlowertext(R.name)
 			if(!(gas_id in gas_data.gases))
 				create_gas_data_for_reagent(R)
 			var/sublimate_this_tick = min(sublimated_units_per_tick, R.volume)

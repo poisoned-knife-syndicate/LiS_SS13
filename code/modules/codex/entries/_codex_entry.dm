@@ -24,7 +24,7 @@
 	if(associated_paths && associated_paths.len)
 		for(var/tpath in associated_paths)
 			var/atom/thing = tpath
-			LAZYADD(associated_strings, sanitize(lowertext(initial(thing.name))))
+			LAZYADD(associated_strings, sanitize(rlowertext(initial(thing.name))))
 	if(display_name)
 		LAZYADD(associated_strings, display_name)
 	else if(associated_strings && associated_strings.len)

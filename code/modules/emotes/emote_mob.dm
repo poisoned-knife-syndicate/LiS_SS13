@@ -71,7 +71,7 @@
 	if(!message || !emoter)
 		return
 
-	message = html_decode(message)
+	message = rhtml_decode(message)
 
 	name_anchor = findtext(message, anchor_char)
 	if(name_anchor > 0) // User supplied emote with visible_emote token (default ^)
@@ -107,9 +107,9 @@
 		if(start_char != "," && start_char != "'")
 			subtext = " " + subtext
 
-	pretext = capitalize(html_encode(pretext))
-	nametext = html_encode(nametext)
-	subtext = html_encode(subtext)
+	pretext = capitalize(rhtml_encode(pretext))
+	nametext = rhtml_encode(nametext)
+	subtext = rhtml_encode(subtext)
 	// Store the player's name in a nice bold, naturalement
 	nametext = "<B>[emoter]</B>"
 	return pretext + nametext + subtext

@@ -22,7 +22,7 @@
 
 	if(ispath(fuel_type, /datum/reagent))
 		var/datum/reagent/R = fuel_type
-		fuel_type = lowertext(initial(R.name))
+		fuel_type = rlowertext(initial(R.name))
 		fuel_colour = initial(R.color)
 		initial_amount = 50000
 

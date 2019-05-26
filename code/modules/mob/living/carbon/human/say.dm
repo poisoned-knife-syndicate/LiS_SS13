@@ -188,7 +188,7 @@
 				R.talk_into(src,message,null,verb,speaking)
 				used_radios += R
 		if("whisper") //It's going to get sanitized again immediately, so decode.
-			whisper_say(html_decode(message), speaking, alt_name)
+			whisper_say(rhtml_decode(message), speaking, alt_name)
 			return 1
 		else
 			if(message_mode)
@@ -221,7 +221,7 @@
 		return all_languages["Noise"]
 
 	if(length(message) >= 2 && is_language_prefix(prefix))
-		var/language_prefix = lowertext(copytext(message, 2 ,3))
+		var/language_prefix = rlowertext(copytext(message, 2 ,3))
 		var/datum/language/L = language_keys[language_prefix]
 		if (can_speak(L))
 			return L

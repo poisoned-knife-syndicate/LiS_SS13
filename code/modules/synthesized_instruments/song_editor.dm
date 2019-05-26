@@ -60,7 +60,7 @@
 
 	switch (target)
 		if("newline")
-			var/newline = html_encode(input(usr, "Enter your line: ") as text|null)
+			var/newline = rhtml_encode(input(usr, "Enter your line: ") as text|null)
 			if(!newline)
 				return
 			if(src.song.lines.len > GLOB.musical_config.max_lines)
@@ -81,7 +81,7 @@
 			var/num = round(value)
 			if(num > src.song.lines.len || num < 1)
 				return
-			var/content = html_encode(input(usr, "Enter your line: ", "Edit line", src.song.lines[num]) as text|null)
+			var/content = rhtml_encode(input(usr, "Enter your line: ", "Edit line", src.song.lines[num]) as text|null)
 			if(num > src.song.lines.len || num < 1)
 				return
 			if(!content)

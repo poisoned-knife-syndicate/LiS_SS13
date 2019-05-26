@@ -50,7 +50,7 @@
 /datum/report_field/proc/set_value(given_value)
 	value = given_value
 
-//Exports the contents of the field into html for viewing. 
+//Exports the contents of the field into html for viewing.
 /datum/report_field/proc/get_value()
 	return value
 
@@ -119,7 +119,7 @@ Basic field subtypes.
 		value = sanitize(given_value) || ""
 
 /datum/report_field/simple_text/ask_value(mob/user)
-	var/input = input(user, "[display_name()]:", "Form Input", html_decode(get_value())) as null|text
+	var/input = input(user, "[display_name()]:", "Form Input", rhtml_decode(get_value())) as null|text
 	set_value(input)
 
 //Inteded for sizable text blocks.
@@ -135,7 +135,7 @@ Basic field subtypes.
 		value = sanitize(replacetext(given_value, "\n", "\[br\]"), MAX_PAPER_MESSAGE_LEN) || ""
 
 /datum/report_field/pencode_text/ask_value(mob/user)
-	set_value(input(user, "[display_name()] (You may use HTML paper formatting tags):", "Form Input", replacetext(html_decode(value), "\[br\]", "\n")) as null|message)
+	set_value(input(user, "[display_name()] (You may use HTML paper formatting tags):", "Form Input", replacetext(rhtml_decode(value), "\[br\]", "\n")) as null|message)
 
 //Uses hh:mm format for times.
 /datum/report_field/time

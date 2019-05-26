@@ -33,10 +33,10 @@
 	else
 		open = TRUE
 		if(choice == SWISSKNF_LBLADE || choice == SWISSKNF_SBLADE)
-			user.visible_message("<span class='warning'>\The [user] opens the [lowertext(choice)].</span>")
+			user.visible_message("<span class='warning'>\The [user] opens the [rlowertext(choice)].</span>")
 			playsound(user, 'sound/weapons/flipblade.ogg', 15, 1)
 		else
-			user.visible_message("<span class='notice'>\The [user] opens the [lowertext(choice)].</span>")
+			user.visible_message("<span class='notice'>\The [user] opens the [rlowertext(choice)].</span>")
 	active_tool = choice
 	update_force()
 	update_icon()
@@ -46,7 +46,7 @@
 	. = ..(user)
 	if(!.)
 		return
-	to_chat(user, active_tool == SWISSKNF_CLOSED ? "It is closed." : "Its [lowertext(active_tool)] is folded out.")
+	to_chat(user, active_tool == SWISSKNF_CLOSED ? "It is closed." : "Its [rlowertext(active_tool)] is folded out.")
 
 /obj/item/weapon/material/knife/folding/swiss/update_force()
 	if(active_tool in sharp_tools)

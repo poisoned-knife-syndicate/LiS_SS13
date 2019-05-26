@@ -52,7 +52,7 @@
 /obj/item/weapon/paper/proc/set_content(text,title)
 	if(title)
 		SetName(title)
-	info = html_encode(text)
+	info = rhtml_encode(text)
 	info = parsepencode(text)
 	update_icon()
 	update_space(info)

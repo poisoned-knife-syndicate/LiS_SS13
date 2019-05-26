@@ -47,7 +47,7 @@
 	var/turf/attack_location
 	var/intent = "(INTENT: N/A)"
 	if(attacker)
-		intent = "(INTENT: [uppertext(attacker.a_intent)])"
+		intent = "(INTENT: [ruppertext(attacker.a_intent)])"
 		if(victim)
 			attacker.attack_logs_ += text("\[[time_stamp()]\] <font color='red'>[key_name(victim)] - [attacker_message] [intent]</font>")
 		else
@@ -70,9 +70,9 @@
 
 	var/full_admin_message
 	if(attacker && victim)
-		full_admin_message = "[key_name(attacker)] [admin_message] [key_name(victim)] (INTENT: [attacker? uppertext(attacker.a_intent) : "N/A"])"
+		full_admin_message = "[key_name(attacker)] [admin_message] [key_name(victim)] (INTENT: [attacker? ruppertext(attacker.a_intent) : "N/A"])"
 	else if(attacker)
-		full_admin_message = "[key_name(attacker)] [admin_message] (INTENT: [attacker? uppertext(attacker.a_intent) : "N/A"])"
+		full_admin_message = "[key_name(attacker)] [admin_message] (INTENT: [attacker? ruppertext(attacker.a_intent) : "N/A"])"
 	else
 		full_admin_message = "[key_name(victim)] [admin_message]"
 	full_admin_message = append_admin_tools(full_admin_message, attacker||victim, attack_location)

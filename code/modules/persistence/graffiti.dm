@@ -61,7 +61,7 @@
 				user.visible_message("<span class='danger'>\The [user] carves some graffiti into \the [loc].</span>")
 				message = "[message] [_message]"
 				author = user.ckey
-				if(lowertext(message) == "elbereth")
+				if(rlowertext(message) == "elbereth")
 					to_chat(user, "<span class='notice'>You feel much safer.</span>")
 	else
 		. = ..()

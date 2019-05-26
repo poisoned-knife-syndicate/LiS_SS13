@@ -24,7 +24,7 @@
 	language = "Chimpanzee"
 
 /decl/cultural_info/culture/hidden/monkey/get_random_name()
-	return "[lowertext(name)] ([rand(100,999)])"
+	return "[rlowertext(name)] ([rand(100,999)])"
 
 /decl/cultural_info/culture/hidden/monkey/farwa
 	name =   CULTURE_FARWA

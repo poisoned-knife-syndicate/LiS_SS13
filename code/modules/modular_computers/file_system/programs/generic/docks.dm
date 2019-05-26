@@ -76,7 +76,7 @@
 			if(!CanInteract(usr,state))
 				return
 			if (newcode)
-				P.docking_codes = uppertext(newcode)
+				P.docking_codes = ruppertext(newcode)
 		return 1
 	if(href_list["dock"])
 		var/datum/computer/file/embedded_program/docking/P = locate(href_list["dock"])

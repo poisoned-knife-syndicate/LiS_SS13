@@ -430,10 +430,10 @@ var/list/ai_verbs_default = list(
 		var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
 		var/mob/living/carbon/human/H = target
 
-		if(!istype(H) || (html_decode(href_list["trackname"]) == H.get_visible_name()) || (html_decode(href_list["trackname"]) == H.get_id_name()))
+		if(!istype(H) || (rhtml_decode(href_list["trackname"]) == H.get_visible_name()) || (rhtml_decode(href_list["trackname"]) == H.get_id_name()))
 			ai_actual_track(target)
 		else
-			to_chat(src, "<span class='warning'>System error. Cannot locate [html_decode(href_list["trackname"])].</span>")
+			to_chat(src, "<span class='warning'>System error. Cannot locate [rhtml_decode(href_list["trackname"])].</span>")
 		return
 
 	return

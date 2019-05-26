@@ -4,7 +4,7 @@
 		var/datum/reagent/reagent = thing
 		if(initial(reagent.hidden_from_codex))
 			continue
-		var/chem_name = lowertext(initial(reagent.name))
+		var/chem_name = rlowertext(initial(reagent.name))
 		var/datum/codex_entry/entry = new( \
 		 _display_name = "[chem_name] (chemical)", \
 		 _associated_strings = list("[chem_name] pill"), \
@@ -21,7 +21,7 @@
 			var/list/reactant_values = list()
 			for(var/reactant_id in reaction.required_reagents)
 				var/datum/reagent/reactant = reactant_id
-				reactant_values += "[reaction.required_reagents[reactant_id]]u [lowertext(initial(reactant.name))]"
+				reactant_values += "[reaction.required_reagents[reactant_id]]u [rlowertext(initial(reactant.name))]"
 
 			if(!reactant_values.len)
 				continue
@@ -29,13 +29,13 @@
 			var/list/catalysts = list()
 			for(var/catalyst_id in reaction.catalysts)
 				var/datum/reagent/catalyst = catalyst_id
-				catalysts += "[reaction.catalysts[catalyst_id]]u [lowertext(initial(catalyst.name))]"
+				catalysts += "[reaction.catalysts[catalyst_id]]u [rlowertext(initial(catalyst.name))]"
 
 			var/datum/reagent/result = reaction.result
 			if(catalysts.len)
-				production_strings += "- [jointext(reactant_values, " + ")] (catalysts: [jointext(catalysts, ", ")]): [reaction.result_amount]u [lowertext(initial(result.name))]"
+				production_strings += "- [jointext(reactant_values, " + ")] (catalysts: [jointext(catalysts, ", ")]): [reaction.result_amount]u [rlowertext(initial(result.name))]"
 			else
-				production_strings += "- [jointext(reactant_values, " + ")]: [reaction.result_amount]u [lowertext(initial(result.name))]"
+				production_strings += "- [jointext(reactant_values, " + ")]: [reaction.result_amount]u [rlowertext(initial(result.name))]"
 
 		if(production_strings.len)
 			if(!entry.mechanics_text)

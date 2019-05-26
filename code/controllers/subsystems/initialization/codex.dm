@@ -10,8 +10,8 @@ SUBSYSTEM_DEF(codex)
 	var/list/search_cache =      list()
 
 /datum/controller/subsystem/codex/Initialize()
-	// Codex link syntax is such: 
-	// <l>keyword</l> when keyword is mentioned verbatim, 
+	// Codex link syntax is such:
+	// <l>keyword</l> when keyword is mentioned verbatim,
 	// <span codexlink='keyword'>whatever</span> when shit gets tricky
 	linkRegex = regex(@"<(span|l)(\s+codexlink='([^>]*)'|)>([^<]+)</(span|l)>","g")
 
@@ -49,7 +49,7 @@ SUBSYSTEM_DEF(codex)
 		var/key = linkRegex.group[4]
 		if(linkRegex.group[2])
 			key = linkRegex.group[3]
-		key = lowertext(trim(key))
+		key = rlowertext(trim(key))
 		var/datum/codex_entry/linked_entry = get_entry_by_string(key)
 		var/replacement = linkRegex.group[4]
 		if(linked_entry)
@@ -65,14 +65,14 @@ SUBSYSTEM_DEF(codex)
 		return get_entry_by_string(entity.name) || entries_by_path[entity.type]
 	else if(entries_by_path[entry])
 		return entries_by_path[entry]
-	else if(entries_by_string[lowertext(entry)])
-		return entries_by_string[lowertext(entry)]
+	else if(entries_by_string[rlowertext(entry)])
+		return entries_by_string[rlowertext(entry)]
 
 /datum/controller/subsystem/codex/proc/add_entry_by_string(var/string, var/entry)
-	entries_by_string[lowertext(trim(string))] = entry
+	entries_by_string[rlowertext(trim(string))] = entry
 
 /datum/controller/subsystem/codex/proc/get_entry_by_string(var/string)
-	return entries_by_string[lowertext(trim(string))]
+	return entries_by_string[rlowertext(trim(string))]
 
 /datum/controller/subsystem/codex/proc/present_codex_entry(var/mob/presenting_to, var/datum/codex_entry/entry)
 	if(entry && istype(presenting_to) && presenting_to.client)
@@ -94,7 +94,7 @@ SUBSYSTEM_DEF(codex)
 	if(!initialized)
 		return list()
 
-	searching = sanitize(lowertext(trim(searching)))
+	searching = sanitize(rlowertext(trim(searching)))
 	if(!searching)
 		return list()
 	if(!search_cache[searching])
@@ -118,7 +118,7 @@ SUBSYSTEM_DEF(codex)
 	if(!. && href_list["show_examined_info"] && href_list["show_to"])
 		var/mob/showing_mob =   locate(href_list["show_to"])
 		if(!istype(showing_mob) || !showing_mob.can_use_codex())
-			return 
+			return
 		var/atom/showing_atom = locate(href_list["show_examined_info"])
 		var/entry
 		if(istype(showing_atom, /datum/codex_entry))

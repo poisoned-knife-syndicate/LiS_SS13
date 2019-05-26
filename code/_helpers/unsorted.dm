@@ -604,7 +604,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: 1 if found, 0 if not.
 /proc/hasvar(var/datum/A, var/varname)
-	if(A.vars.Find(lowertext(varname))) return 1
+	if(A.vars.Find(rlowertext(varname))) return 1
 	else return 0
 
 //Takes: Area type as text string or as typepath OR an instance of the area.
@@ -915,7 +915,7 @@ var/global/list/common_tools = list(
 			return 3800
 		if(/obj/item/weapon/melee/energy)
 			return 3500
-		if(/obj/item/weapon/blob_tendril) 
+		if(/obj/item/weapon/blob_tendril)
 			if(W.damtype == BURN)
 				return 1000
 			else

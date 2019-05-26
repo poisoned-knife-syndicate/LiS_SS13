@@ -65,7 +65,7 @@
 	var/datum/goal/ambition/goal = SSgoals.ambitions[mind]
 	var/new_goal = sanitize(input(src, "Write a short sentence of what your character hopes to accomplish \
 	today as an antagonist.  Remember that this is purely optional.  It will be shown at the end of the \
-	round for everybody else.", "Antagonist Goal", (goal ? html_decode(goal.description) : "")) as null|message)
+	round for everybody else.", "Antagonist Goal", (goal ? rhtml_decode(goal.description) : "")) as null|message)
 	if(!isnull(new_goal))
 		if(!goal)
 			goal = new /datum/goal/ambition(mind)

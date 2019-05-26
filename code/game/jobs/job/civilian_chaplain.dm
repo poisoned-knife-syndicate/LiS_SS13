@@ -29,7 +29,7 @@
 
 			if (!new_religion)
 				new_religion = religion_name
-			switch(lowertext(new_religion))
+			switch(rlowertext(new_religion))
 				if("christianity")
 					B.SetName(pick("The Holy Bible","The Dead Sea Scrolls"))
 				if("satanism")

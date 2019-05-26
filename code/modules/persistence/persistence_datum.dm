@@ -20,7 +20,7 @@
 
 /datum/persistent/proc/SetFilename()
 	if(name)
-		filename = "data/persistent/[lowertext(GLOB.using_map.name)]-[lowertext(name)].txt"
+		filename = "data/persistent/[rlowertext(GLOB.using_map.name)]-[rlowertext(name)].txt"
 	if(!isnull(entries_decay_at) && !isnull(entries_expire_at))
 		entries_decay_at = Floor(entries_expire_at * entries_decay_at)
 

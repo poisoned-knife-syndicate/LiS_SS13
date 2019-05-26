@@ -34,6 +34,6 @@
 		return
 
 	emulating = choice
-	name = "psychokinetic [lowertext(emulating)]"
-	to_chat(owner, "<span class='notice'>You begin emulating \a [lowertext(emulating)].</span>")
+	name = "psychokinetic [rlowertext(emulating)]"
+	to_chat(owner, "<span class='notice'>You begin emulating \a [rlowertext(emulating)].</span>")
 	sound_to(owner, 'sound/effects/psi/power_fabrication.ogg')

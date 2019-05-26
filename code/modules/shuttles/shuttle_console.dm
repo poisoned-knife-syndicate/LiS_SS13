@@ -76,7 +76,7 @@
 	if(href_list["set_codes"])
 		var/newcode = input("Input new docking codes", "Docking codes", shuttle.docking_codes) as text|null
 		if (newcode && CanInteract(usr, GLOB.default_state))
-			shuttle.set_docking_codes(uppertext(newcode))
+			shuttle.set_docking_codes(ruppertext(newcode))
 		return TOPIC_REFRESH
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)

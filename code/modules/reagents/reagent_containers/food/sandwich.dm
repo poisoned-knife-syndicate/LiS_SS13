@@ -69,7 +69,7 @@
 	T.pixel_y = (ingredients.len * 2)+1
 	overlays += T
 
-	SetName(lowertext("[fullname] sandwich"))
+	SetName(rlowertext("[fullname] sandwich"))
 	if(length(name) > 80) SetName("[pick(list("absurd","colossal","enormous","ridiculous"))] sandwich")
 	w_class = Ceiling(Clamp((ingredients.len/2),2,4))
 

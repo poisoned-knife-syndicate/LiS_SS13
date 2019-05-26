@@ -38,7 +38,7 @@
 		if ("import")
 			var/t = ""
 			do
-				t = html_encode(input(usr, "Please paste the entire song, formatted:", text("[]", owner.name), t)  as message)
+				t = rhtml_encode(input(usr, "Please paste the entire song, formatted:", text("[]", owner.name), t)  as message)
 				if(!CanInteractWith(usr, owner, GLOB.physical_state))
 					return
 

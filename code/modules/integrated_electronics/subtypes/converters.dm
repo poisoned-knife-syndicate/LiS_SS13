@@ -121,7 +121,7 @@
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
 	if(!isnull(incoming))
-		result = lowertext(incoming)
+		result = rlowertext(incoming)
 
 	set_pin_data(IC_OUTPUT, 1, result)
 	push_data()
@@ -140,7 +140,7 @@
 	pull_data()
 	var/incoming = get_pin_data(IC_INPUT, 1)
 	if(!isnull(incoming))
-		result = uppertext(incoming)
+		result = ruppertext(incoming)
 
 	set_pin_data(IC_OUTPUT, 1, result)
 	push_data()

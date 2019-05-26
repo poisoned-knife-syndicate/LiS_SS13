@@ -114,7 +114,7 @@
 	return DSAY_ASK_BASE
 
 /decl/dsay_communication/admin/get_message(var/client/communicator, var/mob/M, var/message)
-	var/stafftype = uppertext(communicator.holder.rank)
+	var/stafftype = ruppertext(communicator.holder.rank)
 	return "<span class='name'>[stafftype]([communicator.key])</span> says, <span class='message'>\"[message]\"</span>"
 
 /decl/dsay_communication/admin/adjust_channel(var/decl/communication_channel/dsay)

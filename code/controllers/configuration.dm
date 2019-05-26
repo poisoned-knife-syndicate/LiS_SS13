@@ -260,10 +260,10 @@ var/list/gamemode_cache = list()
 		var/value = null
 
 		if (pos)
-			name = lowertext(copytext(t, 1, pos))
+			name = rlowertext(copytext(t, 1, pos))
 			value = copytext(t, pos + 1)
 		else
-			name = lowertext(t)
+			name = rlowertext(t)
 
 		if (!name)
 			continue
@@ -341,7 +341,7 @@ var/list/gamemode_cache = list()
 
 				if ("log_hrefs")
 					config.log_hrefs = 1
-				
+
 				if ("log_runtime")
 					config.log_runtime = 1
 
@@ -514,7 +514,7 @@ var/list/gamemode_cache = list()
 					var/prob_value = null
 
 					if (prob_pos)
-						prob_name = lowertext(copytext(value, 1, prob_pos))
+						prob_name = rlowertext(copytext(value, 1, prob_pos))
 						prob_value = copytext(value, prob_pos + 1)
 						if (prob_name in config.modes)
 							config.probabilities[prob_name] = text2num(prob_value)
@@ -609,7 +609,7 @@ var/list/gamemode_cache = list()
 
 				if("forbidden_versions")
 					config.forbidden_versions = splittext(value, ";")
-				
+
 				if("minimum_byond_version")
 					config.minimum_byond_version = text2num(value)
 
@@ -828,10 +828,10 @@ var/list/gamemode_cache = list()
 		var/value = null
 
 		if (pos)
-			name = lowertext(copytext(t, 1, pos))
+			name = rlowertext(copytext(t, 1, pos))
 			value = copytext(t, pos + 1)
 		else
-			name = lowertext(t)
+			name = rlowertext(t)
 
 		if (!name)
 			continue

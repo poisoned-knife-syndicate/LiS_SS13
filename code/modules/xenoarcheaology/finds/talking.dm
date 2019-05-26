@@ -43,12 +43,12 @@
 		var/next = Xa + 1
 		if(heard_words.len > 20 + rand(10,20))
 			heard_words.Remove(heard_words[1])
-		if(!heard_words["[lowertext(seperate[Xa])]"])
-			heard_words["[lowertext(seperate[Xa])]"] = list()
-		var/list/w = heard_words["[lowertext(seperate[Xa])]"]
+		if(!heard_words["[rlowertext(seperate[Xa])]"])
+			heard_words["[rlowertext(seperate[Xa])]"] = list()
+		var/list/w = heard_words["[rlowertext(seperate[Xa])]"]
 		if(w)
-			w.Add("[lowertext(seperate[next])]")
-//		log_debug("Adding [lowertext(seperate[next])] to [lowertext(seperate[Xa])]")
+			w.Add("[rlowertext(seperate[next])]")
+//		log_debug("Adding [rlowertext(seperate[next])] to [rlowertext(seperate[Xa])]")
 
 	if(prob(30))
 		var/list/options = list("[holder_atom] seems to be listening intently to [source]...",\
@@ -63,7 +63,7 @@
 /*/obj/item/weapon/talkingcrystal/proc/debug()
 	//set src in view()
 	for(var/v in heard_words)
-		log_debug("[uppertext(v)]")
+		log_debug("[ruppertext(v)]")
 		var/list/d = heard_words["[v]"]
 		for(var/X in d)
 			log_debug("[X]") */
@@ -80,10 +80,10 @@
 	else
 		text = pick(splittext(word, " "))
 	if(lentext(text)==1)
-		text=uppertext(text)
+		text=ruppertext(text)
 	else
 		var/cap = copytext(text,1,2)
-		cap = uppertext(cap)
+		cap = ruppertext(cap)
 		cap += copytext(text,2,lentext(text)+1)
 		text=cap
 	var/q = 0
@@ -91,7 +91,7 @@
 	if(msg=="What" | msg == "Who" | msg == "How" | msg == "Why" | msg == "Are")
 		q=1
 
-	text=lowertext(text)
+	text=rlowertext(text)
 	for(var/ya,ya <= limit,ya++)
 
 		if(heard_words.Find("[text]"))

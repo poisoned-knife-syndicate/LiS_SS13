@@ -49,6 +49,6 @@
 	if(!invocation_area || !chosenarea)
 		..()
 	else
-		invocation += "[uppertext(chosenarea.name)]"
+		invocation += "[ruppertext(chosenarea.name)]"
 		..()
 	return

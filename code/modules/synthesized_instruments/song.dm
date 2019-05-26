@@ -137,7 +137,7 @@
 			var/datum/real_instrument/R = S.real_instrument
 			if (R.song_editor)
 				SSnano.update_uis(R.song_editor)
-		for (var/notes in splittext(lowertext(line), ","))
+		for (var/notes in splittext(rlowertext(line), ","))
 			var/list/components = splittext(notes, "/")
 			var/duration = sanitize_tempo(src.tempo)
 			if (components.len)

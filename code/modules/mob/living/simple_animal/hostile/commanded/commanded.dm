@@ -13,13 +13,13 @@
 /mob/living/simple_animal/hostile/commanded/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if((weakref(speaker) in friends) || speaker == master)
 		command_buffer.Add(speaker)
-		command_buffer.Add(lowertext(html_decode(message)))
+		command_buffer.Add(rlowertext(rhtml_decode(message)))
 	return 0
 
 /mob/living/simple_animal/hostile/commanded/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	if((weakref(speaker) in friends) || speaker == master)
 		command_buffer.Add(speaker)
-		command_buffer.Add(lowertext(html_decode(message)))
+		command_buffer.Add(rlowertext(rhtml_decode(message)))
 	return 0
 
 /mob/living/simple_animal/hostile/commanded/Life()
@@ -29,7 +29,7 @@
 	while(command_buffer.len > 0)
 		var/mob/speaker = command_buffer[1]
 		var/text = command_buffer[2]
-		var/filtered_name = lowertext(html_decode(name))
+		var/filtered_name = rlowertext(rhtml_decode(name))
 		if(dd_hasprefix(text,filtered_name) || dd_hasprefix(text,"everyone") || dd_hasprefix(text, "everybody")) //in case somebody wants to command 8 bears at once.
 			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
 			listen(speaker,substring)
@@ -117,7 +117,7 @@
 		if(findtext(text, "[M]"))
 			found = 1
 		else
-			var/list/parsed_name = splittext(replace_characters(lowertext(html_decode("[M]")),list("-"=" ", "."=" ", "," = " ", "'" = " ")), " ") //this big MESS is basically 'turn this into words, no punctuation, lowercase so we can check first name/last name/etc'
+			var/list/parsed_name = splittext(replace_characters(rlowertext(rhtml_decode("[M]")),list("-"=" ", "."=" ", "," = " ", "'" = " ")), " ") //this big MESS is basically 'turn this into words, no punctuation, lowercase so we can check first name/last name/etc'
 			for(var/a in parsed_name)
 				if(a == "the" || length(a) < 2) //get rid of shit words.
 					continue

@@ -106,7 +106,7 @@
 
 /datum/species/monkey/handle_post_spawn(var/mob/living/carbon/human/H)
 	..()
-	H.item_state = lowertext(name)
+	H.item_state = rlowertext(name)
 
 /datum/species/monkey/alien
 	name = "Farwa"

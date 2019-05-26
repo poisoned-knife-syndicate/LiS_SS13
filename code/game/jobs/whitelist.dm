@@ -85,7 +85,7 @@ var/list/whitelist = list()
 		if(!(ckey in alien_whitelist))
 			return 0;
 		var/list/whitelisted = alien_whitelist[ckey]
-		if(lowertext(item) in whitelisted)
+		if(rlowertext(item) in whitelisted)
 			return 1
 	else
 		//Config File Whitelist

@@ -155,7 +155,7 @@
 
 	update_current_antag_max(SSticker.mode)
 	var/active_antags = get_active_antag_count()
-	message_admins("[uppertext(id)]: Found [active_antags]/[cur_max] active [role_text_plural].")
+	message_admins("[ruppertext(id)]: Found [active_antags]/[cur_max] active [role_text_plural].")
 
 	if(active_antags >= cur_max)
 		message_admins("Could not auto-spawn a [role_text], active antag limit reached.")

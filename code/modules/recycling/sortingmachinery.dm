@@ -371,7 +371,7 @@
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input(user, "Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
 		if(CanUseTopic(user, state))
-			if(dest && lowertext(dest) != "none")
+			if(dest && rlowertext(dest) != "none")
 				src.currTag = dest
 				to_chat(user, "<span class='notice'>You designate a custom location on [src], set to <b>[src.currTag]</b>.</span>")
 				playsound(src.loc, 'sound/machines/chime.ogg', 50, 1)
@@ -419,7 +419,7 @@
 			if(AM.loc.y != src.loc.y-1) return
 		if(WEST)
 			if(AM.loc.x != src.loc.x-1) return
-			
+
 	var/mob/living/L = AM
 	if (istype(L) && L.ckey)
 		log_and_message_admins("has flushed themselves down \the [src].", L)

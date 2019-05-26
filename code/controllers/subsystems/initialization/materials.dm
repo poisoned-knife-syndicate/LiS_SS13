@@ -28,7 +28,7 @@ SUBSYSTEM_DEF(materials)
 		var/material/new_mineral = new type
 		if(new_mineral.name)
 			materials += new_mineral
-			materials_by_name[lowertext(new_mineral.name)] = new_mineral
+			materials_by_name[rlowertext(new_mineral.name)] = new_mineral
 			if(new_mineral.ore_smelts_to || new_mineral.ore_compresses_to)
 				processable_ores[new_mineral.name] = TRUE
 			if(new_mineral.alloy_product && LAZYLEN(new_mineral.alloy_materials))

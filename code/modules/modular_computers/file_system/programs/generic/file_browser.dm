@@ -93,7 +93,7 @@
 			error = "This file is read only. You cannot edit it."
 			return 1
 
-		var/oldtext = html_decode(F.stored_data)
+		var/oldtext = rhtml_decode(F.stored_data)
 		oldtext = replacetext(oldtext, "\[br\]", "\n")
 
 		var/newtext = sanitize(replacetext(input(usr, "Editing file [open_file]. You may use most tags used in paper formatting:", "Text Editor", oldtext) as message|null, "\n", "\[br\]"), MAX_TEXTFILE_LENGTH)
@@ -109,7 +109,7 @@
 			// This is mostly intended to prevent people from losing texts they spent lot of time working on due to running out of space.
 			// They will be able to copy-paste the text from error screen and store it in notepad or something.
 			if(!HDD.store_file(F))
-				error = "I/O error: Unable to overwrite file. Hard drive is probably full. You may want to backup your changes before closing this window:<br><br>[html_decode(F.stored_data)]<br><br>"
+				error = "I/O error: Unable to overwrite file. Hard drive is probably full. You may want to backup your changes before closing this window:<br><br>[rhtml_decode(F.stored_data)]<br><br>"
 				HDD.store_file(backup)
 	if(href_list["PRG_printfile"])
 		. = 1
