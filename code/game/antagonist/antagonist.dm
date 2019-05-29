@@ -15,8 +15,8 @@
 
 	// Role data.
 	var/id = "traitor"                      // Unique datum identifier. Also preferences option for this role.
-	var/role_text = "Traitor"               // special_role text.
-	var/role_text_plural = "Traitors"       // As above but plural.
+	var/role_text = "Mercenary"               // special_role text.
+	var/role_text_plural = "Mercenary's"       // As above but plural.
 
 	// Visual references.
 	var/antaghud_indicator = "hudsyndicate" // Used by the ghost antagHUD.
