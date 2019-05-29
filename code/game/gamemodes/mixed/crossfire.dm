@@ -1,5 +1,5 @@
 /datum/game_mode/crossfire
-	name = "Mercenary & Heist"
+	name = "Syndicate Forces & Heist"
 	round_description = "Mercenaries and raiders are preparing for a nice visit..."
 	extended_round_description = "Nothing can possibly go wrong with lots of people and lots of guns, right?"
 	config_tag = "crossfire"

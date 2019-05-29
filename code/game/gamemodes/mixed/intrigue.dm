@@ -1,5 +1,5 @@
 /datum/game_mode/intrigue
-	name = "Ninja & Traitor"
+	name = "Ninja & Mercenary"
 	extended_round_description = "Traitors and a ninja spawn during this round."
 	config_tag = "intrigue"
 	required_players = 15
