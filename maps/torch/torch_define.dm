@@ -22,7 +22,7 @@
 	company_name  = "Sol Central Government"
 	company_short = "SolGov"
 
-	map_admin_faxes = list("D.E.S.T.R.O Central Office")
+	map_admin_faxes = list("NT Central Office")
 
 	//These should probably be moved into the evac controller...
 	shuttle_docked_message = "Âíèìàíèå âñåì: çàïóùåíà ïðîöåäóðà ïîäãîòîâêè ê ïîäïðîñòðàíñòâåííîìó ïðûæêó â ñëåäóþùèé ñåêòîð. Ðàñ÷åòíîå âðåìÿ îêîí÷àíèÿ çàðÿäêè ãåíåðàòîðà áëþñïåéñà: %ETD%."
