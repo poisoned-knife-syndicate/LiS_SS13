@@ -5,8 +5,8 @@
 var/list/nuke_disks = list()
 
 /datum/game_mode/nuclear
-	name = "Syndicate Force"
-	round_description = "A Syndicate strike force is approaching!"
+	name = "Mercenary"
+	round_description = "A mercenary strike force is approaching!"
 	extended_round_description = "The Company's majority control of phoron in Nyx has marked the \
 		station to be a highly valuable target for many competing organizations and individuals. Being a \
 		colony of sizable population and considerable wealth causes it to often be the target of various \
@@ -24,12 +24,6 @@ var/list/nuke_disks = list()
 		"summary_nukefail"
 	)
 
-//checks if L has a nuke disk on their person
-/datum/game_mode/nuclear/proc/check_mob(mob/living/L)
-	for(var/obj/item/weapon/disk/nuclear/N in nuke_disks)
-		if(N.storage_depth(L) >= 0)
-			return TRUE
-	return FALSE
 
 /datum/game_mode/nuclear/declare_completion()
 	var/datum/antagonist/merc = GLOB.all_antag_types_[MODE_MERCENARY]
@@ -37,9 +31,9 @@ var/list/nuke_disks = list()
 		..()
 		return
 	var/disk_rescued = TRUE
-	for(var/obj/item/weapon/disk/nuclear/D in world)
+	for(var/obj/item/weapon/disk/nuclear/D in nuke_disks)
 		var/disk_area = get_area(D)
-		if(!is_type_in_list(disk_area, GLOB.using_map.post_round_safe_areas))
+		if(!is_type_in_list(disk_area, GLOB.using_map.post_round_safe_areas) || GLOB.mercs.antags_are_dead())
 			disk_rescued = FALSE
 			break
 	var/crew_evacuated = (evacuation_controller.has_evacuated())
