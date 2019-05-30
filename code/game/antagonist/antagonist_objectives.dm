@@ -6,6 +6,8 @@
 	return 1
 
 /datum/antagonist/proc/create_objectives(var/datum/mind/player, var/override=0)
+	if(player.objectives.len && !override)
+		return 0
 	if(config.objectives_disabled != CONFIG_OBJECTIVE_ALL && !override)
 		return 0
 	if(create_global_objectives(override) || global_objectives.len)
@@ -65,7 +67,7 @@
 	var/datum/goal/ambition/goal = SSgoals.ambitions[mind]
 	var/new_goal = sanitize(input(src, "Write a short sentence of what your character hopes to accomplish \
 	today as an antagonist.  Remember that this is purely optional.  It will be shown at the end of the \
-	round for everybody else.", "Antagonist Goal", (goal ? rhtml_decode(goal.description) : "")) as null|message)
+	round for everybody else.", "Antagonist Goal", (goal ? html_decode(goal.description) : "")) as null|message)
 	if(!isnull(new_goal))
 		if(!goal)
 			goal = new /datum/goal/ambition(mind)
