@@ -1,5 +1,5 @@
 /datum/game_mode/traitor
-	name = "Mercenary"
+	name = "traitor"
 	round_description = "There is a foreign agent or traitor onboard. Do not let the traitor succeed!"
 	extended_round_description = "The Company's monopolistic control over the phoron supplies of Nyx has marked the \
 		station to be a highly valuable target for many competing organizations and individuals. The varied pasts \
