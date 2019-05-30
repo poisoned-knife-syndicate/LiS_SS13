@@ -17,18 +17,18 @@
 	station_name  = "SEV Torch"
 	station_short = "Torch"
 	dock_name     = "TBD"
-	boss_name     = "D.E.S.T.R.O Command"
-	boss_short    = "D.E.S.T.R.O"
-	company_name  = "Senate Central Government"
-	company_short = "SenateGov"
+	boss_name     = "Nanotrasen Command"
+	boss_short    = "NT"
+	company_name  = "Sol Central Government"
+	company_short = "SolGov"
 
 	map_admin_faxes = list("D.E.S.T.R.O Central Office")
 
 	//These should probably be moved into the evac controller...
-	shuttle_docked_message = "Внимание всем: запущена процедура подготовки к подпространственному прыжку в следующий сектор. Расчетное время окончания зарядки генератора блюспейса: %ETD%."
-	shuttle_leaving_dock = "Внимание всем: подготовка к подпространственному прыжку завершена. Начата процедура безопасной активации генератора подпространства. Расчетное время до начала прыжка:  %ETA%."
-	shuttle_called_message = "Внимание всем: Прыжок начался. Начаты полетные процедуры. Осталось:  %ETA%."
-	shuttle_recall_message = "Внимание всем: Прыжок отменён, Возвращайтесь к выполнению своих рабочих обязанностей."
+	shuttle_docked_message = "Г‚Г­ГЁГ¬Г Г­ГЁГҐ ГўГ±ГҐГ¬: Г§Г ГЇГіГ№ГҐГ­Г  ГЇГ°Г®Г¶ГҐГ¤ГіГ°Г  ГЇГ®Г¤ГЈГ®ГІГ®ГўГЄГЁ ГЄ ГЇГ®Г¤ГЇГ°Г®Г±ГІГ°Г Г­Г±ГІГўГҐГ­Г­Г®Г¬Гі ГЇГ°Г»Г¦ГЄГі Гў Г±Г«ГҐГ¤ГіГѕГ№ГЁГ© Г±ГҐГЄГІГ®Г°. ГђГ Г±Г·ГҐГІГ­Г®ГҐ ГўГ°ГҐГ¬Гї Г®ГЄГ®Г­Г·Г Г­ГЁГї Г§Г Г°ГїГ¤ГЄГЁ ГЈГҐГ­ГҐГ°Г ГІГ®Г°Г  ГЎГ«ГѕГ±ГЇГҐГ©Г±Г : %ETD%."
+	shuttle_leaving_dock = "Г‚Г­ГЁГ¬Г Г­ГЁГҐ ГўГ±ГҐГ¬: ГЇГ®Г¤ГЈГ®ГІГ®ГўГЄГ  ГЄ ГЇГ®Г¤ГЇГ°Г®Г±ГІГ°Г Г­Г±ГІГўГҐГ­Г­Г®Г¬Гі ГЇГ°Г»Г¦ГЄГі Г§Г ГўГҐГ°ГёГҐГ­Г . ГЌГ Г·Г ГІГ  ГЇГ°Г®Г¶ГҐГ¤ГіГ°Г  ГЎГҐГ§Г®ГЇГ Г±Г­Г®Г© Г ГЄГІГЁГўГ Г¶ГЁГЁ ГЈГҐГ­ГҐГ°Г ГІГ®Г°Г  ГЇГ®Г¤ГЇГ°Г®Г±ГІГ°Г Г­Г±ГІГўГ . ГђГ Г±Г·ГҐГІГ­Г®ГҐ ГўГ°ГҐГ¬Гї Г¤Г® Г­Г Г·Г Г«Г  ГЇГ°Г»Г¦ГЄГ :  %ETA%."
+	shuttle_called_message = "Г‚Г­ГЁГ¬Г Г­ГЁГҐ ГўГ±ГҐГ¬: ГЏГ°Г»Г¦Г®ГЄ Г­Г Г·Г Г«Г±Гї. ГЌГ Г·Г ГІГ» ГЇГ®Г«ГҐГІГ­Г»ГҐ ГЇГ°Г®Г¶ГҐГ¤ГіГ°Г». ГЋГ±ГІГ Г«Г®Г±Гј:  %ETA%."
+	shuttle_recall_message = "Г‚Г­ГЁГ¬Г Г­ГЁГҐ ГўГ±ГҐГ¬: ГЏГ°Г»Г¦Г®ГЄ Г®ГІГ¬ГҐГ­ВёГ­, Г‚Г®Г§ГўГ°Г Г№Г Г©ГІГҐГ±Гј ГЄ ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГѕ Г±ГўГ®ГЁГµ Г°Г ГЎГ®Г·ГЁГµ Г®ГЎГїГ§Г Г­Г­Г®Г±ГІГҐГ©."
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
@@ -46,17 +46,17 @@
 
 /datum/map/torch/get_map_info()
 	. = list()
-	. +=  "Вы находитесь на борту <b>[station_name]</b>, исследовательского судна корпорации D.E.S.T.R.O. Основна&#255; мисси&#255; вашего объекта - проведение исследований на нейтральной территории."
+	. +=  "Г‚Г» Г­Г ГµГ®Г¤ГЁГІГҐГ±Гј Г­Г  ГЎГ®Г°ГІГі <b>[station_name]</b>, ГЁГ±Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ±ГЄГ®ГЈГ® Г±ГіГ¤Г­Г  ГЄГ®Г°ГЇГ®Г°Г Г¶ГЁГЁ NT. ГЋГ±Г­Г®ГўГ­Г &#255; Г¬ГЁГ±Г±ГЁ&#255; ГўГ ГёГҐГЈГ® Г®ГЎГєГҐГЄГІГ  - ГЇГ°Г®ГўГҐГ¤ГҐГ­ГЁГҐ ГЁГ±Г±Г«ГҐГ¤Г®ГўГ Г­ГЁГ© Г­Г  Г­ГҐГ©ГІГ°Г Г«ГјГ­Г®Г© ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ."
 	return jointext(., "<br>")
 
 /datum/map/torch/send_welcome()
 	var/welcome_text = "<center><img src = sollogo.png /><br /><font size = 3><b>SEV Torch</b> Sensor Readings:</font><br>"
-	welcome_text += "Отчет сгенерирован [stationdate2text()] в [stationtime2text()]</center><br /><br />"
-	welcome_text += "<hr>Текуща&#255; система:<br /><b>[system_name()]</b><br /><br>"
-	welcome_text += "Следующа&#255; система дл&#255; прыжка:<br /><b>[generate_system_name()]</b><br /><br>"
-	welcome_text += "Дней до Солнечной Системы::<br /><b>[rand(15,45)] days</b><br /><br>"
-	welcome_text += "Дней с последнего визита в порт::<br /><b>[rand(60,180)] days</b><br /><hr>"
-	welcome_text += "Сенсоры показали следущие объекты для изучения:<br />"
+	welcome_text += "ГЋГІГ·ГҐГІ Г±ГЈГҐГ­ГҐГ°ГЁГ°Г®ГўГ Г­ [stationdate2text()] Гў [stationtime2text()]</center><br /><br />"
+	welcome_text += "<hr>Г’ГҐГЄГіГ№Г &#255; Г±ГЁГ±ГІГҐГ¬Г :<br /><b>[system_name()]</b><br /><br>"
+	welcome_text += "Г‘Г«ГҐГ¤ГіГѕГ№Г &#255; Г±ГЁГ±ГІГҐГ¬Г  Г¤Г«&#255; ГЇГ°Г»Г¦ГЄГ :<br /><b>[generate_system_name()]</b><br /><br>"
+	welcome_text += "Г„Г­ГҐГ© Г¤Г® Г‘Г®Г«Г­ГҐГ·Г­Г®Г© Г‘ГЁГ±ГІГҐГ¬Г»::<br /><b>[rand(15,45)] days</b><br /><br>"
+	welcome_text += "Г„Г­ГҐГ© Г± ГЇГ®Г±Г«ГҐГ¤Г­ГҐГЈГ® ГўГЁГ§ГЁГІГ  Гў ГЇГ®Г°ГІ::<br /><b>[rand(60,180)] days</b><br /><hr>"
+	welcome_text += "Г‘ГҐГ­Г±Г®Г°Г» ГЇГ®ГЄГ Г§Г Г«ГЁ Г±Г«ГҐГ¤ГіГ№ГЁГҐ Г®ГЎГєГҐГЄГІГ» Г¤Г«Гї ГЁГ§ГіГ·ГҐГ­ГЁГї:<br />"
 	var/list/space_things = list()
 	var/obj/effect/overmap/torch = map_sectors["1"]
 	for(var/zlevel in map_sectors)
@@ -69,20 +69,20 @@
 
 	var/list/distress_calls
 	for(var/obj/effect/overmap/O in space_things)
-		var/location_desc = " на текущем квадрате."
+		var/location_desc = " Г­Г  ГІГҐГЄГіГ№ГҐГ¬ ГЄГўГ Г¤Г°Г ГІГҐ."
 		if(O.loc != torch.loc)
 			var/bearing = round(90 - Atan2(O.x - torch.x, O.y - torch.y),5) //fucking triangles how do they work
 			if(bearing < 0)
 				bearing += 360
-			location_desc = ", по азимуту [bearing]."
+			location_desc = ", ГЇГ® Г Г§ГЁГ¬ГіГІГі [bearing]."
 		if(O.has_distress_beacon)
 			LAZYADD(distress_calls, "[O.has_distress_beacon][location_desc]")
 		welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
 
 	if(LAZYLEN(distress_calls))
-		welcome_text += "<br><b>Обнаружены сигналы бедстви&#255;</b><br>[jointext(distress_calls, "<br>")]<br>"
+		welcome_text += "<br><b>ГЋГЎГ­Г Г°ГіГ¦ГҐГ­Г» Г±ГЁГЈГ­Г Г«Г» ГЎГҐГ¤Г±ГІГўГЁ&#255;</b><br>[jointext(distress_calls, "<br>")]<br>"
 	else
-		welcome_text += "<br>Сигналы бедстви&#255; не обнаружаны<br />"
+		welcome_text += "<br>Г‘ГЁГЈГ­Г Г«Г» ГЎГҐГ¤Г±ГІГўГЁ&#255; Г­ГҐ Г®ГЎГ­Г Г°ГіГ¦Г Г­Г»<br />"
 	welcome_text += "<hr>"
 
 	post_comm_message("SEV Torch Sensor Readings", welcome_text)
