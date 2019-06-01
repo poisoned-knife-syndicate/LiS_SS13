@@ -17,18 +17,18 @@
 	station_name  = "SEV Torch"
 	station_short = "Torch"
 	dock_name     = "TBD"
-	boss_name     = "Nanotrasen Command"
-	boss_short    = "NT"
+	boss_name     = "Expeditionary Command"
+	boss_short    = "Command"
 	company_name  = "Sol Central Government"
 	company_short = "SolGov"
 
-	map_admin_faxes = list("NT Central Office")
+	map_admin_faxes = list("Corporate Central Office")
 
 	//These should probably be moved into the evac controller...
-	shuttle_docked_message = "Âíèìàíèå âñåì: çàïóùåíà ïðîöåäóðà ïîäãîòîâêè ê ïîäïðîñòðàíñòâåííîìó ïðûæêó â ñëåäóþùèé ñåêòîð. Ðàñ÷åòíîå âðåìÿ îêîí÷àíèÿ çàðÿäêè ãåíåðàòîðà áëþñïåéñà: %ETD%."
-	shuttle_leaving_dock = "Âíèìàíèå âñåì: ïîäãîòîâêà ê ïîäïðîñòðàíñòâåííîìó ïðûæêó çàâåðøåíà. Íà÷àòà ïðîöåäóðà áåçîïàñíîé àêòèâàöèè ãåíåðàòîðà ïîäïðîñòðàíñòâà. Ðàñ÷åòíîå âðåìÿ äî íà÷àëà ïðûæêà:  %ETA%."
-	shuttle_called_message = "Âíèìàíèå âñåì: Ïðûæîê íà÷àëñÿ. Íà÷àòû ïîëåòíûå ïðîöåäóðû. Îñòàëîñü:  %ETA%."
-	shuttle_recall_message = "Âíèìàíèå âñåì: Ïðûæîê îòìåí¸í, Âîçâðàùàéòåñü ê âûïîëíåíèþ ñâîèõ ðàáî÷èõ îáÿçàííîñòåé."
+	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
+	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
+	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
+	shuttle_recall_message = "Attention all hands: Jump sequence aborted, return to normal operating conditions."
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
@@ -46,17 +46,19 @@
 
 /datum/map/torch/get_map_info()
 	. = list()
-	. +=  "Âû íàõîäèòåñü íà áîðòó <b>[station_name]</b>, èññëåäîâàòåëüñêîãî ñóäíà êîðïîðàöèè NT. Îñíîâíà&#255; ìèññè&#255; âàøåãî îáúåêòà - ïðîâåäåíèå èññëåäîâàíèé íà íåéòðàëüíîé òåððèòîðèè."
+	. +=  "You're aboard the <b>[station_name]</b>, an Expeditionary Corps starship. Its primary mission is looking for undiscovered sapient alien species, and general exploration along the way."
+	. +=  "The vessel is staffed with a mix of SCG government personnel and hired contractors."
+	. +=  "This area of space is uncharted, away from SCG territory. You might encounter remote outposts or drifting hulks, but no recognized government holds claim on this sector."
 	return jointext(., "<br>")
 
 /datum/map/torch/send_welcome()
 	var/welcome_text = "<center><img src = sollogo.png /><br /><font size = 3><b>SEV Torch</b> Sensor Readings:</font><br>"
-	welcome_text += "Îò÷åò ñãåíåðèðîâàí [stationdate2text()] â [stationtime2text()]</center><br /><br />"
-	welcome_text += "<hr>Òåêóùà&#255; ñèñòåìà:<br /><b>[system_name()]</b><br /><br>"
-	welcome_text += "Ñëåäóþùà&#255; ñèñòåìà äë&#255; ïðûæêà:<br /><b>[generate_system_name()]</b><br /><br>"
-	welcome_text += "Äíåé äî Ñîëíå÷íîé Ñèñòåìû::<br /><b>[rand(15,45)] days</b><br /><br>"
-	welcome_text += "Äíåé ñ ïîñëåäíåãî âèçèòà â ïîðò::<br /><b>[rand(60,180)] days</b><br /><hr>"
-	welcome_text += "Ñåíñîðû ïîêàçàëè ñëåäóùèå îáúåêòû äëÿ èçó÷åíèÿ:<br />"
+	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
+	welcome_text += "<hr>Current system:<br /><b>[system_name()]</b><br /><br>"
+	welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br /><br>"
+	welcome_text += "Travel time to Sol:<br /><b>[rand(15,45)] days</b><br /><br>"
+	welcome_text += "Time since last port visit:<br /><b>[rand(60,180)] days</b><br /><hr>"
+	welcome_text += "Scan results show the following points of interest:<br />"
 	var/list/space_things = list()
 	var/obj/effect/overmap/torch = map_sectors["1"]
 	for(var/zlevel in map_sectors)
@@ -69,20 +71,20 @@
 
 	var/list/distress_calls
 	for(var/obj/effect/overmap/O in space_things)
-		var/location_desc = " íà òåêóùåì êâàäðàòå."
+		var/location_desc = " at present co-ordinates."
 		if(O.loc != torch.loc)
 			var/bearing = round(90 - Atan2(O.x - torch.x, O.y - torch.y),5) //fucking triangles how do they work
 			if(bearing < 0)
 				bearing += 360
-			location_desc = ", ïî àçèìóòó [bearing]."
+			location_desc = ", bearing [bearing]."
 		if(O.has_distress_beacon)
 			LAZYADD(distress_calls, "[O.has_distress_beacon][location_desc]")
 		welcome_text += "<li>\A <b>[O.name]</b>[location_desc]</li>"
 
 	if(LAZYLEN(distress_calls))
-		welcome_text += "<br><b>Îáíàðóæåíû ñèãíàëû áåäñòâè&#255;</b><br>[jointext(distress_calls, "<br>")]<br>"
+		welcome_text += "<br><b>Distress calls logged:</b><br>[jointext(distress_calls, "<br>")]<br>"
 	else
-		welcome_text += "<br>Ñèãíàëû áåäñòâè&#255; íå îáíàðóæàíû<br />"
+		welcome_text += "<br>No distress calls logged.<br />"
 	welcome_text += "<hr>"
 
 	post_comm_message("SEV Torch Sensor Readings", welcome_text)
