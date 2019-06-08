@@ -156,6 +156,10 @@ var/list/gamemode_cache = list()
 
 	var/comms_password = ""
 	var/ban_comms_password = null
+
+	var/webhook_address
+	var/webhook_key
+
 	var/list/forbidden_versions = list() // Clients with these byond versions will be autobanned. Format: string "byond_version.byond_build"; separate with ; in config, e.g. 512.1234;512.1235
 	var/minimum_byond_version = 0
 	var/minimum_byond_build = 0
@@ -606,6 +610,12 @@ var/list/gamemode_cache = list()
 
 				if("ban_comms_password")
 					config.ban_comms_password = value
+
+				if("webhook_address")
+					config.webhook_address = value
+
+				if("webhook_key")
+					config.webhook_key = value
 
 				if("forbidden_versions")
 					config.forbidden_versions = splittext(value, ";")
