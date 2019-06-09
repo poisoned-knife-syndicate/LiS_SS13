@@ -37,6 +37,44 @@ var/list/department_radio_keys = list(
 	  ":Z" = "Entertainment",".Z" = "Entertainment",
 	  ":Y" = "Exploration",		".Y" = "Exploration",
 
+	  ":ê" = "right ear",	".ê" = "right ear",
+	  ":ä" = "left ear",	".ä" = "left ear",
+	  ":ø" = "intercom",	".ø" = "intercom",
+	  ":ð" = "department",	".ð" = "department",
+	  ":ñ" = "Command",		".ñ" = "Command",
+	  ":ò" = "Science",		".ò" = "Science",
+	  ":ü" = "Medical",		".ü" = "Medical",
+	  ":ó" = "Engineering",	".ó" = "Engineering",
+	  ":û" = "Security",	".û" = "Security",
+	  ":ö" = "whisper",		".ö" = "whisper",
+	  ":å" = "Mercenary",	".å" = "Mercenary",
+	  ":ã" = "Supply",		".ã" = "Supply",
+	  ":ì" = "Service",		".ì" = "Service",
+	  ":ç" = "AI Private",	".ç" = "AI Private",
+	  ":ÿ" = "Entertainment",".ÿ" = "Entertainment",
+	  ":í" = "Exploration",		".í" = "Exploration",
+
+	  ":Ê" = "right ear",	".Ê" = "right ear",
+	  ":Ä" = "left ear",	".Ä" = "left ear",
+	  ":Ø" = "intercom",	".Ø" = "intercom",
+	  ":Ð" = "department",	".Ð" = "department",
+	  ":Ñ" = "Command",		".Ñ" = "Command",
+	  ":Ò" = "Science",		".Ò" = "Science",
+	  ":Ü" = "Medical",		".Ü" = "Medical",
+	  ":Ó" = "Engineering",	".Ó" = "Engineering",
+	  ":Û" = "Security",	".Û" = "Security",
+	  ":Ö" = "whisper",		".Ö" = "whisper",
+	  ":Å" = "Mercenary",	".Å" = "Mercenary",
+	  ":Ã" = "Supply",		".Ã" = "Supply",
+	  ":Ì" = "Service",		".Ì" = "Service",
+	  ":Ç" = "AI Private",	".Ç" = "AI Private",
+	  ":ß" = "Entertainment",".ß" = "Entertainment",
+	  ":Í" = "Exploration",		".Í" = "Exploration",
+
+
+
+
+/*       That code part doesn't work - TermService
 	  //kinda localization -- rastaf0
 	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
 	  ":Ãª" = "right ear",	".Ãª" = "right ear",
@@ -51,6 +89,9 @@ var/list/department_radio_keys = list(
 	  ":Ã¶" = "whisper",		".Ã¶" = "whisper",
 	  ":Ã¥" = "Mercenary",	".Ã¥" = "Mercenary",
 	  ":Ã©" = "Supply",		".Ã©" = "Supply",
+*/
+
+
 )
 
 
